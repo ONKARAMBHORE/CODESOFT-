@@ -1,0 +1,46 @@
+import json
+
+tasks = []
+
+def create_task(title, description, priority, due_date, category):
+    task = {
+        "title": title,
+        "description": description,
+        "priority": priority,
+        "due_date": due_date,
+        "category": category
+    }
+    tasks.append(task)
+
+def view_tasks():
+    for i, task in enumerate(tasks, start=1):
+        print(f"Task {i}:")
+        print(f"Title: {task['title']}")
+        print(f"Description: {task['description']}")
+        print(f"Priority: {task['priority']}")
+        print(f"Due Date: {task['due_date']}")
+        print(f"Category: {task['category']}")
+        print()
+
+def main():
+    while True:
+        print("1. Create Task")
+        print("2. View Tasks")
+        print("3. Exit")
+        choice = input("Enter your choice: ")
+        if choice == "1":
+            title = input("Enter task title: ")
+            description = input("Enter task description: ")
+            priority = input("Enter task priority: ")
+            due_date = input("Enter task due date: ")
+            category = input("Enter task category: ")
+            create_task(title, description, priority, due_date, category)
+        elif choice == "2":
+            view_tasks()
+        elif choice == "3":
+            break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
